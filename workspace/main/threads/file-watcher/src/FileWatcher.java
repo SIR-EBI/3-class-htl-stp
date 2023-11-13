@@ -16,7 +16,7 @@ public class FileWatcher implements Runnable {
             e.printStackTrace();
         }
     }
-    
+
     private long timeStamp;
     private File file;
     private int intervalMs;
