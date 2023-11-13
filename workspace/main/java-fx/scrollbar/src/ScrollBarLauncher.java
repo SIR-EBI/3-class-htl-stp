@@ -1,9 +1,9 @@
 import javafx.application.Application;
 
-public class CenteredLauncher {
-
+public class ScrollBarLauncher {
+    
     public static void main(String[] args) {
-        Application.launch(CenteredApp.class, args);
+        Application.launch(ScrollBarApp.class, args);
     }
 
 }
