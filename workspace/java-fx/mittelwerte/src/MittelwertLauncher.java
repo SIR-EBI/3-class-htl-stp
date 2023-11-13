@@ -1,9 +1,9 @@
 import javafx.application.Application;
 
-public class RectangleLauncher {
+public class MittelwertLauncher {
 
     public static void main(String[] args) {
-        Application.launch(RectangleApp.class, args);
+           Application.launch(MittelwertApp.class, args);
     }
 
 }
