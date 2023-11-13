@@ -5,6 +5,18 @@ import java.nio.file.Path;
 
 public class FileWatcher implements Runnable {
 
+    public static void main(String[] args) {
+        // Path directory = Path.of(args[0]);
+        Path directory = Path.of("main/threads/file-watcher/resources/");
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(directory)) {
+            for (Path path : stream) {
+                new Thread(new FileWatcher(path, 1000)).start();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     private long timeStamp;
     private File file;
     private int intervalMs;
@@ -40,18 +52,6 @@ public class FileWatcher implements Runnable {
     private void trySleep() {
         try {
             Thread.sleep(intervalMs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void main(String[] args) {
-        // Path directory = Path.of(args[0]);
-        Path directory = Path.of("main/threads/file-watcher/resources/");
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(directory)) {
-            for (Path path : stream) {
-                new Thread(new FileWatcher(path, 1000)).start();
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
