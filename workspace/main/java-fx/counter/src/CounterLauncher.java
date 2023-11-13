@@ -1,9 +1,9 @@
 import javafx.application.Application;
 
-public class ListCellLauncher {
+public class CounterLauncher {
 
     public static void main(String[] args) {
-        Application.launch(ListCellApp.class, args);
+        Application.launch(CounterApp.class, args);
     }
 
 }
