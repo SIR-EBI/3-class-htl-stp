@@ -15,7 +15,7 @@ public class DictionaryController {
 
     @FXML
     void initialize() {
-        Dictionary dictionary = new Dictionary("java-fx/dictionary/resources/de-DE1.dic");
+        Dictionary dictionary = new Dictionary("main/java-fx/dictionary/resources/de-DE1.dic");
         textField.textProperty().addListener(event -> {
             lvPermutations.getItems().setAll(dictionary.getPermutations(textField.getText()));
             lvSameLetters.getItems().setAll(dictionary.getWordsWithSameLetters(textField.getText()));

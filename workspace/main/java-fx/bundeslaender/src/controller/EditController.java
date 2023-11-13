@@ -29,7 +29,7 @@ public class EditController {
     private Button btnOk;
 
     public void initEditWindow(Bundesland bundesland) {
-        File imgFile = new File("java-fx/bundeslaender/resource/assets/" + bundesland.getWappenName());
+        File imgFile = new File("main/java-fx/bundeslaender/resource/assets/" + bundesland.getWappenName());
         Image image = new Image(imgFile.toURI().toString());
         ivWappen.setImage(image);
 

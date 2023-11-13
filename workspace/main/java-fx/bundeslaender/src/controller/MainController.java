@@ -22,7 +22,7 @@ public class MainController {
 
     @FXML
     void initialize() throws FileNotFoundException {
-        list = FXCollections.observableArrayList(Bundesland.readFile(new FileInputStream("java-fx/bundeslaender/resource/bundeslaender.csv")));
+        list = FXCollections.observableArrayList(Bundesland.readFile(new FileInputStream("main/java-fx/bundeslaender/resource/bundeslaender.csv")));
 
         listView.getItems().addAll(list);
 

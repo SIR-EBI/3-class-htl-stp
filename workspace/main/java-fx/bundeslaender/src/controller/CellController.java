@@ -32,7 +32,7 @@ public class CellController {
     public void initCell(Bundesland bundesland) {
         name.setText(bundesland.getName());
 
-        File imgFile = new File("java-fx/bundeslaender/resource/assets/" + bundesland.getWappenName());
+        File imgFile = new File("main/java-fx/bundeslaender/resource/assets/" + bundesland.getWappenName());
         Image image = new Image(imgFile.toURI().toString());
         wappen.setImage(image);
 
