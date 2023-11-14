@@ -1,10 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -31,14 +28,14 @@ public class HotelTest {
     public void readsColumns() throws IOException {
         Map<String, Short> expected = getColumnsMap();
 
-        Map<String, Short> result = Hotel.readColumns("./resources/hotels.db");
+        Map<String, Short> result = Hotel.readColumns("main/cli/delete-lines/resources/hotels.db");
 
         assertIterableEquals(expected.entrySet(), result.entrySet());
     }
 
     @Test
     public void getsStartingOffset() throws IOException {
-        int offset = Hotel.getStartingOffset("./resources/hotels.db");
+        int offset = Hotel.getStartingOffset("main/cli/delete-lines/resources/hotels.db");
 
         assertEquals(74, offset);
     }
@@ -62,7 +59,7 @@ public class HotelTest {
 
     @Test
     public void cannotReadFromInvalidFile() {
-        String filename = "./resources/invalid.db";
+        String filename = "main/cli/delete-lines/resources/invalid.db";
 
         String errorMsg = assertThrows(IllegalArgumentException.class, () -> Hotel.readHotels(filename)).getMessage();
         assertTrue(errorMsg.contains(filename));
@@ -78,7 +75,7 @@ public class HotelTest {
                 LocalDate.of(2019, 11, 12),
                 "MAUS");
 
-        Set<Hotel> result = Hotel.readHotels("./resources/hotels.db");
+        Set<Hotel> result = Hotel.readHotels("main/cli/delete-lines/resources/hotels.db");
 
         assertEquals(31, result.size());
         assertTrue(result.contains(contained));
@@ -94,7 +91,7 @@ public class HotelTest {
                 LocalDate.of(2018, 12, 10),
                 "Michael");
 
-        Set<Hotel> result = Hotel.readHotels("./resources/hotels.db");
+        Set<Hotel> result = Hotel.readHotels("main/cli/delete-lines/resources/hotels.db");
 
         assertFalse(result.contains(deleted));
     }
@@ -116,7 +113,7 @@ public class HotelTest {
                 LocalDate.of(2003, 1, 19),
                 "");
 
-        SortedSet<Hotel> result = (SortedSet<Hotel>) Hotel.readHotels("./resources/hotels.db");
+        SortedSet<Hotel> result = (SortedSet<Hotel>) Hotel.readHotels("main/cli/delete-lines/resources/hotels.db");
 
         assertEquals(first, result.first());
         assertEquals(last, result.last());
